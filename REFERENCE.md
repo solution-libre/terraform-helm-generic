@@ -47,5 +47,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_version"></a> [app\_version](#output\_app\_version) | Application version |
 | <a name="output_namespace"></a> [namespace](#output\_namespace) | The namespace |
 <!-- END_TF_DOCS -->

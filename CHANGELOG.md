@@ -7,10 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [0.1.1] 2022-12-03
+
+### Added
+
+- Ouptut of the application version
+
 ## [0.1.0] 2022-11-01
 
 ### Added
 
 - Terraform module creation
 
+[0.1.1]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.0...v0.1.1
 [0.1.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/tags/v0.1.0
