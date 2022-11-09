@@ -1,10 +1,4 @@
 locals {
-  values = templatefile(
-    "${path.module}/templates/values.yaml.tpl",
-    {
-    }
-  )
-
   namespace = (var.namespace.create) ? kubernetes_namespace.namespace.*.metadata.0.name[0] : var.namespace.name
 }
 
@@ -29,7 +23,7 @@ resource "helm_release" "helm_release" {
   version    = var.helm_release.chart_version
 
   values = compact([
-    local.values,
+    var.values,
     var.helm_release.extra_values,
   ])
   namespace = var.namespace.name

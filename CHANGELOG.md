@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
-## [0.1.1] 2022-12-03
+## [0.1.2] 2022-11-09
+
+### Added
+
+- Add `values` input variable to pass values to Helm release
+
+### Fixed
+
+- Fix missing interpretation of the values in the Helm chart
+
+## [0.1.1] 2022-11-03
 
 ### Added
 
@@ -19,5 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Terraform module creation
 
+[0.1.2]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.1...v0.1.2
 [0.1.1]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.0...v0.1.1
 [0.1.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/tags/v0.1.0

@@ -42,6 +42,7 @@ No modules.
 | <a name="input_labels_prefix"></a> [labels\_prefix](#input\_labels\_prefix) | Custom label prefix used for network policy namespace matching | `string` | `"solution-libre.fr"` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace customization | <pre>object({<br>    create = optional(bool, true)<br>    name   = string<br>  })</pre> | n/a | yes |
 | <a name="input_network_policy"></a> [network\_policy](#input\_network\_policy) | Network policy customization | <pre>object({<br>    enabled = optional(bool, true)<br>  })</pre> | <pre>{<br>  "enabled": true<br>}</pre> | no |
+| <a name="input_values"></a> [values](#input\_values) | Helm release values | `string` | `""` | no |
 
 ## Outputs
 

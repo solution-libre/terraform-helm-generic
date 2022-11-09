@@ -33,3 +33,9 @@ variable "network_policy" {
     enabled = optional(bool, true)
   })
 }
+
+variable "values" {
+  default     = ""
+  description = "Helm release values"
+  type        = string
+}
