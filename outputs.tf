@@ -1,6 +1,6 @@
 output "namespace" {
   description = "The namespace"
-  value       = local.namespace
+  value       = helm_release.helm_release.metadata.0.namespace
 }
 
 output "app_version" {

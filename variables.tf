@@ -10,12 +10,6 @@ variable "helm_release" {
   })
 }
 
-variable "labels_prefix" {
-  default     = "solution-libre.fr"
-  description = "Custom label prefix used for network policy namespace matching"
-  type        = string
-}
-
 variable "namespace" {
   description = "Namespace customization"
   type = object({
@@ -24,13 +18,13 @@ variable "namespace" {
   })
 }
 
-variable "network_policy" {
-  default = {
-    enabled = true
-  }
-  description = "Network policy customization"
+variable "network_policies" {
+  default     = {}
+  description = "Default network policies customization"
   type = object({
-    enabled = optional(bool, true)
+    default_deny_enabled     = optional(bool, true)
+    allow_namespace_enabled  = optional(bool, true)
+    allow_monitoring_enabled = optional(bool, false)
   })
 }
 

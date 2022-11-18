@@ -29,7 +29,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [helm_release.helm_release](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
-| [kubernetes_namespace.namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [kubernetes_network_policy.network_policy_allow_monitoring](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
 | [kubernetes_network_policy.network_policy_allow_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
 | [kubernetes_network_policy.network_policy_default_deny](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
@@ -39,9 +38,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_helm_release"></a> [helm\_release](#input\_helm\_release) | Helm release customization | <pre>object({<br>    extra_values  = optional(string)<br>    name          = string<br>    chart         = string<br>    chart_version = string<br>    repository    = string<br>    timeout       = optional(number, 900)<br>  })</pre> | n/a | yes |
-| <a name="input_labels_prefix"></a> [labels\_prefix](#input\_labels\_prefix) | Custom label prefix used for network policy namespace matching | `string` | `"solution-libre.fr"` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace customization | <pre>object({<br>    create = optional(bool, true)<br>    name   = string<br>  })</pre> | n/a | yes |
-| <a name="input_network_policy"></a> [network\_policy](#input\_network\_policy) | Network policy customization | <pre>object({<br>    enabled = optional(bool, true)<br>  })</pre> | <pre>{<br>  "enabled": true<br>}</pre> | no |
+| <a name="input_network_policies"></a> [network\_policies](#input\_network\_policies) | Default network policies customization | <pre>object({<br>    default_deny_enabled     = optional(bool, true)<br>    allow_namespace_enabled  = optional(bool, true)<br>    allow_monitoring_enabled = optional(bool, false)<br>  })</pre> | `{}` | no |
 | <a name="input_values"></a> [values](#input\_values) | Helm release values | `string` | `""` | no |
 
 ## Outputs

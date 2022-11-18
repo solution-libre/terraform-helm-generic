@@ -1,40 +1,25 @@
-locals {
-  namespace = (var.namespace.create) ? kubernetes_namespace.namespace.*.metadata.0.name[0] : var.namespace.name
-}
-
-resource "kubernetes_namespace" "namespace" {
-  count = var.namespace.create ? 1 : 0
-
-  metadata {
-    labels = {
-      name                             = var.namespace.name
-      "${var.labels_prefix}/component" = "ingress"
-    }
-
-    name = var.namespace.name
-  }
-}
-
 resource "helm_release" "helm_release" {
-  repository = var.helm_release.repository
   name       = var.helm_release.name
   chart      = var.helm_release.chart
+  repository = var.helm_release.repository
   timeout    = var.helm_release.timeout
   version    = var.helm_release.chart_version
 
+  create_namespace = var.namespace.create
+  namespace        = var.namespace.name
+
   values = compact([
     var.values,
-    var.helm_release.extra_values,
+    var.helm_release.extra_values
   ])
-  namespace = var.namespace.name
 }
 
 resource "kubernetes_network_policy" "network_policy_default_deny" {
-  count = var.network_policy.enabled ? 1 : 0
+  count = var.network_policies.default_deny_enabled ? 1 : 0
 
   metadata {
-    name      = "${local.namespace}-default-deny"
-    namespace = local.namespace
+    name      = "${helm_release.helm_release.metadata.0.namespace}-default-deny"
+    namespace = helm_release.helm_release.metadata.0.namespace
   }
 
   spec {
@@ -45,11 +30,11 @@ resource "kubernetes_network_policy" "network_policy_default_deny" {
 }
 
 resource "kubernetes_network_policy" "network_policy_allow_namespace" {
-  count = var.network_policy.enabled ? 1 : 0
+  count = var.network_policies.allow_namespace_enabled ? 1 : 0
 
   metadata {
-    name      = "${local.namespace}-allow-namespace"
-    namespace = local.namespace
+    name      = "${helm_release.helm_release.metadata.0.namespace}-allow-namespace"
+    namespace = helm_release.helm_release.metadata.0.namespace
   }
 
   spec {
@@ -60,7 +45,7 @@ resource "kubernetes_network_policy" "network_policy_allow_namespace" {
       from {
         namespace_selector {
           match_labels = {
-            name = local.namespace
+            "kubernetes.io/metadata.name" = helm_release.helm_release.metadata.0.namespace
           }
         }
       }
@@ -71,11 +56,11 @@ resource "kubernetes_network_policy" "network_policy_allow_namespace" {
 }
 
 resource "kubernetes_network_policy" "network_policy_allow_monitoring" {
-  count = var.network_policy.enabled ? 1 : 0
+  count = var.network_policies.allow_monitoring_enabled ? 1 : 0
 
   metadata {
-    name      = "${local.namespace}-allow-monitoring"
-    namespace = local.namespace
+    name      = "${helm_release.helm_release.metadata.0.namespace}-allow-monitoring"
+    namespace = helm_release.helm_release.metadata.0.namespace
   }
 
   spec {
@@ -86,7 +71,7 @@ resource "kubernetes_network_policy" "network_policy_allow_monitoring" {
       from {
         namespace_selector {
           match_labels = {
-            "${var.labels_prefix}/component" = "monitoring"
+            "kubernetes.io/metadata.name" = "monitoring"
           }
         }
       }
