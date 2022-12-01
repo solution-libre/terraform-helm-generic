@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [0.3.0] 2022-12-01
+
+### Added
+
+- Add variable input for sensitive values
+
 ## [0.2.0] 2022-11-18
 
 ### Added
@@ -44,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Terraform module creation
 
+[0.3.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.2.0...v0.3.0
 [0.2.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.2...v0.2.0
 [0.1.2]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.1...v0.1.2
 [0.1.1]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.1.0...v0.1.1

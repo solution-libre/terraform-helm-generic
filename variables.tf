@@ -22,10 +22,17 @@ variable "network_policies" {
   default     = {}
   description = "Default network policies customization"
   type = object({
-    default_deny_enabled     = optional(bool, true)
     allow_namespace_enabled  = optional(bool, true)
     allow_monitoring_enabled = optional(bool, false)
+    default_deny_enabled     = optional(bool, true)
   })
+}
+
+variable "sensitive_values" {
+  default     = {}
+  description = "Helm release sensitive values"
+  sensitive   = true
+  type        = map(string)
 }
 
 variable "values" {
