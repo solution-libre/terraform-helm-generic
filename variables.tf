@@ -1,7 +1,7 @@
 variable "helm_release" {
   description = "Helm release customization"
   type = object({
-    extra_values  = optional(string)
+    extra_values  = optional(list(string), [])
     name          = string
     chart         = string
     chart_version = string

@@ -16,8 +16,8 @@ resource "helm_release" "helm_release" {
     }
   }
 
-  values = compact([
-    var.values,
+  values = compact(concat(
+    [var.values],
     var.helm_release.extra_values
-  ])
+  ))
 }
