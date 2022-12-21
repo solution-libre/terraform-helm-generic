@@ -18,8 +18,7 @@ Generic [Terraform](https://www.terraform.io/) module that allows you to deploy 
 
 ```terraform
 module "generic" {
-  source  = "usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/generic/helm"
-  version = "0.2.0"
+  source  = "solution-libre/generic/helm"
 
   helm_release = {
     chart         = "software"
