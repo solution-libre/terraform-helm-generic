@@ -23,6 +23,11 @@ validate:
   extends: .terraform:validate
   needs: []
 
+kics-iac-sast:
+  artifacts:
+    paths:
+      - gl-sast-report.json
+
 markdownlint:
   stage: validate
   image:
