@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
+## [Unreleased]
+
+### Added
+
+- Added recommanded VSCode extentions
+- Added some VSCode tasks
+
 ## [0.4.1] 2022-12-21
 
 ### Fixed
@@ -63,6 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Terraform module creation
 
+[Unreleased]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.4.1...develop
 [0.4.1]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.4.0...v0.4.1
 [0.4.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.3.0...v0.4.0
 [0.3.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.2.0...v0.3.0
