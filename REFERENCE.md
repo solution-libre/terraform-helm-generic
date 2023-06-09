@@ -37,9 +37,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_helm_release"></a> [helm\_release](#input\_helm\_release) | Helm release customization | <pre>object({<br>    extra_values  = optional(list(string), [])<br>    name          = string<br>    chart         = string<br>    chart_version = string<br>    repository    = string<br>    timeout       = optional(number, 900)<br>  })</pre> | n/a | yes |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace customization | <pre>object({<br>    create = optional(bool, true)<br>    name   = string<br>  })</pre> | n/a | yes |
-| <a name="input_network_policies"></a> [network\_policies](#input\_network\_policies) | Default network policies customization | <pre>object({<br>    allow_namespace_enabled  = optional(bool, true)<br>    allow_monitoring_enabled = optional(bool, false)<br>    default_deny_enabled     = optional(bool, true)<br>  })</pre> | `{}` | no |
+| <a name="input_helm_release"></a> [helm\_release](#input\_helm\_release) | Helm release configuration | <pre>object({<br>    chart         = string<br>    chart_version = string<br>    extra_values  = optional(list(string), [])<br>    name          = string<br>    repository    = string<br>    timeout       = optional(number, 900)<br>  })</pre> | n/a | yes |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace configuration | <pre>object({<br>    create = optional(bool, true)<br>    name   = string<br>  })</pre> | n/a | yes |
+| <a name="input_network_policies"></a> [network\_policies](#input\_network\_policies) | Default network policies configuration | <pre>object({<br>    allow_monitoring_enabled = optional(bool, false)<br>    allow_namespace_enabled  = optional(bool, true)<br>    default_deny_enabled     = optional(bool, true)<br>  })</pre> | `{}` | no |
 | <a name="input_sensitive_values"></a> [sensitive\_values](#input\_sensitive\_values) | Helm release sensitive values | `map(string)` | `{}` | no |
 | <a name="input_values"></a> [values](#input\_values) | Helm release values | `string` | `""` | no |
 
@@ -47,6 +47,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_app_version"></a> [app\_version](#output\_app\_version) | Application version |
 | <a name="output_namespace"></a> [namespace](#output\_namespace) | The namespace |
+| <a name="output_version"></a> [version](#output\_version) | Application version |
 <!-- END_TF_DOCS -->

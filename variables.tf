@@ -1,17 +1,17 @@
 variable "helm_release" {
-  description = "Helm release customization"
+  description = "Helm release configuration"
   type = object({
-    extra_values  = optional(list(string), [])
-    name          = string
     chart         = string
     chart_version = string
+    extra_values  = optional(list(string), [])
+    name          = string
     repository    = string
     timeout       = optional(number, 900)
   })
 }
 
 variable "namespace" {
-  description = "Namespace customization"
+  description = "Namespace configuration"
   type = object({
     create = optional(bool, true)
     name   = string
@@ -20,10 +20,10 @@ variable "namespace" {
 
 variable "network_policies" {
   default     = {}
-  description = "Default network policies customization"
+  description = "Default network policies configuration"
   type = object({
-    allow_namespace_enabled  = optional(bool, true)
     allow_monitoring_enabled = optional(bool, false)
+    allow_namespace_enabled  = optional(bool, true)
     default_deny_enabled     = optional(bool, true)
   })
 }
