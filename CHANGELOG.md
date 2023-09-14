@@ -7,16 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdownlint-configure-file { "MD024": { "allow_different_nesting": true } } -->
 
-## [Unreleased]
+## [0.5.0] 2023-09-14
 
 ### Added
 
-- Added recommanded VSCode extentions
-- Added some VSCode tasks
+- Recommanded VSCode extentions
+- Some VSCode tasks
 
 ### Changed
 
 - Rename `app_version` output variable to `version`
+
+### Fixed
+
+- Does not recreate network policies when the Helm chart is upgraded
 
 ## [0.4.1] 2022-12-21
 
@@ -74,7 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Terraform module creation
 
-[Unreleased]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.4.1...develop
+[0.5.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.4.1...v0.5.0
 [0.4.1]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.4.0...v0.4.1
 [0.4.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.3.0...v0.4.0
 [0.3.0]: https://usine.solution-libre.fr/french-high-availability-multi-cloud-hosting/terraform-modules/generic/-/compare/v0.2.0...v0.3.0

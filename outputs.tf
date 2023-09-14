@@ -1,6 +1,6 @@
 output "namespace" {
   description = "The namespace"
-  value       = helm_release.helm_release.metadata.0.namespace
+  value       = var.namespace.name
 }
 
 output "version" {
