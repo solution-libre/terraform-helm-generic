@@ -29,9 +29,10 @@ No modules.
 | Name | Type |
 |------|------|
 | [helm_release.helm_release](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
-| [kubernetes_network_policy.network_policy_allow_monitoring](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
-| [kubernetes_network_policy.network_policy_allow_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
-| [kubernetes_network_policy.network_policy_default_deny](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
+| [kubernetes_network_policy.allow_monitoring_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
+| [kubernetes_network_policy.allow_within_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
+| [kubernetes_network_policy.default_allow_all](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
+| [kubernetes_network_policy.default_deny_all](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy) | resource |
 
 ## Inputs
 
@@ -39,7 +40,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_helm_release"></a> [helm\_release](#input\_helm\_release) | Helm release configuration | <pre>object({<br>    chart         = string<br>    chart_version = string<br>    extra_values  = optional(list(string), [])<br>    name          = string<br>    repository    = string<br>    timeout       = optional(number, 900)<br>  })</pre> | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace configuration | <pre>object({<br>    create = optional(bool, true)<br>    name   = string<br>  })</pre> | n/a | yes |
-| <a name="input_network_policies"></a> [network\_policies](#input\_network\_policies) | Default network policies configuration | <pre>object({<br>    allow_monitoring_enabled = optional(bool, false)<br>    allow_namespace_enabled  = optional(bool, true)<br>    default_deny_enabled     = optional(bool, true)<br>  })</pre> | `{}` | no |
+| <a name="input_network_policies"></a> [network\_policies](#input\_network\_policies) | Default network policies configuration | <pre>object({<br>    egress = optional(object({<br>      allow = optional(object({<br>        within_namespace = optional(bool, false) # Allow egress traffic within the namespace<br>      }), {})<br>      default = optional(object({<br>        allow_all = optional(bool, false) # By default, allow all egress traffic<br>        deny_all  = optional(bool, false) # By default, deny all egress traffic<br>      }), {})<br>    }), {})<br>    ingress = optional(object({<br>      allow = optional(object({<br>        monitoring_namespace = optional(bool, false) # Allow ingress traffic from the namespace named monitoring<br>        within_namespace     = optional(bool, false) # Allow ingress traffic within the namespace<br>      }), {})<br>      default = optional(object({<br>        allow_all = optional(bool, false) # By default, allow all ingress traffic<br>        deny_all  = optional(bool, false) # By default, deny all ingress traffic<br>      }), {})<br>    }), {})<br>  })</pre> | `{}` | no |
 | <a name="input_sensitive_values"></a> [sensitive\_values](#input\_sensitive\_values) | Helm release sensitive values | `map(string)` | `{}` | no |
 | <a name="input_values"></a> [values](#input\_values) | Helm release values | `string` | `""` | no |
 
