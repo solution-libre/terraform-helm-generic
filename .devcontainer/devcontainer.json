@@ -20,7 +20,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "go version",
+	// "postCreateCommand": "terraform version",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -33,13 +33,7 @@
 				"ms-kubernetes-tools.vscode-kubernetes-tools",
 				"davidanson.vscode-markdownlint",
 				"redhat.vscode-yaml"
-			],
-			"settings": {
-				"terraform.languageServer": {
-				  "enabled": true,
-				  "args": []
-				}
-			}
+			]
 		}
 	}
 
